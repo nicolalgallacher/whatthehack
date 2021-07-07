@@ -3,11 +3,11 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "webAppName": {
-            "defaultValue": "wthng-devops-dev",
+            "defaultValue": "wthngdevops-dev",
             "type": "String"
         },
         "hostingPlanName": {
-            "defaultValue": "wthng-devops-asp",
+            "defaultValue": "wthngdevops-asp",
             "type": "String"
         },
         "appInsightsLocation": {
@@ -15,7 +15,7 @@
             "type": "String"
         },
         "appInsightsName": {
-            "defaultValue": "wthng-devops-ai",
+            "defaultValue": "wthngdevops-ai",
             "type": "String"
         },        
         "sku": {
@@ -23,11 +23,11 @@
             "type": "String"
         },
         "registryName": {
-            "defaultValue": "wthng-devopsreg",
+            "defaultValue": "wthngdevopsreg",
             "type": "String"
         },
         "imageName": {
-            "defaultValue": "wthng-devopsimage",
+            "defaultValue": "wthngdevopsimage",
             "type":"String"
         },
         "registryLocation": {
