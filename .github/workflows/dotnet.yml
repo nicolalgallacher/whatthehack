@@ -23,4 +23,4 @@ jobs:
     - name: Build
       run: dotnet build ./Application/src/RazorPagesTestSample/RazorPagesTestSample.csproj --no-restore 
     - name: Test
-      run: dotnet test ~/Application/tests/RazorPagesTestSample.Tests/RazorPagesTestSample.Tests.csproj
+      run: dotnet test ./Application/tests/RazorPagesTestSample.Tests/RazorPagesTestSample.Tests.csproj
