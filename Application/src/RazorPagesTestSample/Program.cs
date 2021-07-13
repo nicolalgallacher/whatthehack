@@ -6,7 +6,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using RazorPagesTestSample.Data;
 
-//
+// Change in comments to trigger docker action
 namespace RazorPagesTestSample
 {
     public class Program
