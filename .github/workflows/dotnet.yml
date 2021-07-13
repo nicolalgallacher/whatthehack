@@ -3,7 +3,7 @@ name: .NET
 env:
   registryName: wthngdevopsreg.azurecr.io
   repositoryName: wth/dotnetcoreapp
-  dockerFolderPth: Application/aspnet-core-dotnet-core
+  dockerFolderPath: Application/aspnet-core-dotnet-core
   tag: ${{github.run_number}}
 
 on:
