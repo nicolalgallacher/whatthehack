@@ -5,6 +5,7 @@ env:
   repositoryName: wth/dotnetcoreapp
   dockerFolderPath: Application/src/RazorPagesTestSample
   tag: ${{github.run_number}}
+  devWebApp: wthngdevops-dev
 
 on:
   push:
@@ -43,19 +44,14 @@ jobs:
     - name: Docker push
       run: docker push $registryName/$repositoryName:$tag
 
-  #Dev Challenge 6
-  dev:
-    runs-on: ubuntu-latest
+      #challenge 6
+    - name: Login to Azure
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-    steps:
-      - uses: actions/checkout@v2
-      - uses: azure/login@v1
-      - name: Login to Azure
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-          
-      - name: Pull Container Image
-      - uses: azure/webapps-deploy@v2
-        with:
-          app-name: wthngdevops-dev
-          images: wthngdevopsreg.azurecr.io/wth/dotnetcoreapp:$tag
+    - name: Pull Container Image
+    - uses: azure/webapps-deploy@v2
+      with:
+        app-name: $devWebApp
+        images: $registryName/$repositoryName:$tag
