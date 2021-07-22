@@ -6,7 +6,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using RazorPagesTestSample.Data;
 
-//    comment to trigger workflow
+//    
 namespace RazorPagesTestSample
 {
     public class Program
