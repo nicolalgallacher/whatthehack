@@ -52,5 +52,6 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
       - name: Pull Container Image
       - uses: azure/webapps-deploy@v2
+        with:
           app-name: wthngdevops-dev
           images: wthngdevopsreg.azurecr.io/wth/dotnetcoreapp:$tag
