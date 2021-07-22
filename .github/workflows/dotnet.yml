@@ -46,12 +46,14 @@ jobs:
   #Dev Challenge 6
   dev:
     runs-on: ubuntu-latest
-    
+
     steps:
+      - uses: actions/checkout@v2
+      - uses: azure/login@v1
       - name: Login to Azure
-        uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+          
       - name: Pull Container Image
       - uses: azure/webapps-deploy@v2
         with:
