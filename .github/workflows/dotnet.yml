@@ -44,10 +44,14 @@ jobs:
       run: docker push $registryName/$repositoryName:$tag
 
   #challenge 6
+  devWebApp:
+    runs-on: ubuntu-latest
+
+    steps:
      - uses: azure/login@v1
         with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-
+        
     #Challenge 6
      - uses: azure/webapps-deploy@v2
       with:
