@@ -45,13 +45,13 @@ jobs:
       run: docker push $registryName/$repositoryName:$tag
 
       #challenge 6
-    #- name: Login to Azure
-    #- uses: azure/login@v1
-    #  with:
-    #    creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-    - name: Pull Container Image
-    - uses: azure/webapps-deploy@v2
+    - name: Login to Azure
+      uses: azure/login@v1
       with:
-        app-name: $devWebApp
-        images: $registryName/$repositoryName:$tag
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      uses: azure/webapps-deploy@v2
+    - name: Pull Container Image
+      with:
+        app-name: ${{ env.devWebApp }}
+        images: ${{ env.registryName }}/${{ env.repositoryName }}:${{ env.tag }}
