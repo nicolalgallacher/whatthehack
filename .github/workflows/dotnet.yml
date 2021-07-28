@@ -19,13 +19,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
-     #challenge 6
-    - name: Login to Azure
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-
     - uses: actions/checkout@v2
       name: Setup .NET
       uses: actions/setup-dotnet@v1
@@ -50,9 +43,13 @@ jobs:
     - name: Docker push
       run: docker push $registryName/$repositoryName:$tag
 
+  #challenge 6
+     - uses: azure/login@v1
+        with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
     #Challenge 6
-    - uses: azure/webapps-deploy@v2
-      name: Pull Container Image
+     - uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ env.devWebApp }}
         images: ${{ env.registryName }}/${{ env.repositoryName }}:${{ env.tag }}
