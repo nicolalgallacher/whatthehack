@@ -36,7 +36,8 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
-      name: Docker login
+      name: checkout
+    - name: Docker login
       run: docker login $registryName -u ${{secrets.ACR_USERNAME}} -p ${{secrets.ACR_PASSWORD}}
     - name: Docker build
       run: docker build -t $registryName/$repositoryName:$tag --build-arg build_version=$tag $dockerFolderPath
@@ -46,15 +47,13 @@ jobs:
   #challenge 6
   devWebApp:
     runs-on: ubuntu-latest
-
     steps:
-      - name: DevWebApp
+      - name: AzureLogin
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-    #Challenge 6
-     # - name: DevWebApp
+      - name: DevWebApp
         uses: azure/webapps-deploy@v2
         with:
           app-name: ${{ env.devWebApp }}
