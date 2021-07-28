@@ -48,13 +48,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: AzureLogin
+      - name: DevWebApp
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     #Challenge 6
-      - name: DevWebApp
+     # - name: DevWebApp
         uses: azure/webapps-deploy@v2
         with:
           app-name: ${{ env.devWebApp }}
